@@ -1,0 +1,747 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <meta name="description" content="Personal portfolio of Ritik, a Full Stack Developer and Creative Coder">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    {% comment %} favicons {% endcomment %}
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+
+    <link rel="icon" sizes="32x32" type="image/png" href="{% static 'favicon/favicon-32x32.png' %}">
+
+    <link rel="apple-touch-icon" type="image/png" href="{% static 'favicon/apple-touch-icon.png' %}">
+</head>
+<body>
+    <!-- Dynamic Background Glass Liquid Blobs -->
+    <div class="liquid-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="blob blob-5"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <h3 style="margin-top: 20px;">Portfolio</h3>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#resume" class="nav-link">Resume</a>
+                <!-- <a href="#3d-model" class="nav-link">3D Model</a> -->
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-sun"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Ritik Kumar Nayak</span>
+                </h1>
+                <p class="hero-subtitle">I'm a Web Designer with extensive experience for over 2 years. Expertise is to create and website design, Backend Development, and many more....</p>
+                <div class="typing-container">
+                   <h2> <span class="typing-text" id="typing-text"></span>
+                    <span class="cursor">|</span></h2>
+                </div>
+                <div class="social-row">
+                    <a href="https://www.facebook.com/share/1CuC8M48KH/" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VbCdJniATRSsG6cfv03q" class="social-circle"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://github.com/Tech-With-Ritik" class="social-circle"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ritik-kumar-nayak/" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#resume" class="btn btn-primary">Download Resume</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="profile-image">
+                    <div class="photo-3d-card">
+                        <div class="photo-3d-inner">
+                            <img src="{% static 'image/Ritik.jpeg' %}" alt="Ritik" class="profile-img">
+                            <div class="photo-3d-shadow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="photo-3d-card about-photo-3d">
+                        <div class="photo-3d-inner">
+                            <img src="{% static 'image/Ritik.jpeg' %}" alt="Ritik" class="about-img" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face'">
+                            <div class="photo-3d-shadow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Backend AI Developer</h3>
+                    <p>I'm a Final-year B.Tech Computer Science Engineering student with a strong passion for software development, 
+                        backend engineering, and Artificial Intelligence. I have hands-on experience in programming languages such as C, Java, 
+                        and Python, along with web technologies including HTML, CSS, JavaScript, Django, and Django REST Framework (DRF). 
+                        I am skilled in building scalable web applications, developing REST APIs, working with SQL databases, implementing 
+                        JWT-based authentication, integrating third-party APIs and payment gateways, and deploying full-stack projects. 
+                        I also have experience in AI, machine learning, computer vision, and data analysis, enabling me to develop intelligent 
+                        and data-driven solutions. I enjoy solving real-world problems through technology and am always eager to learn emerging 
+                        technologies, build innovative applications, and continuously grow as a developer and technology enthusiast.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Happy Users</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Services</h2>
+                <p class="section-subtitle">Comprehensive web development solutions</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Web Development</h3>
+                        <p>Custom web applications built with modern technologies. From simple landing pages to complex enterprise solutions.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Responsive Design</li>
+                            <li><i class="fas fa-check"></i> Modern Frameworks</li>
+                            <li><i class="fas fa-check"></i> Performance Optimization</li>
+                            <li><i class="fas fa-check"></i> SEO Best Practices</li>
+                        </ul>
+                        <div class="service-unique">
+                            <span class="unique-badge">🚀 Fast Delivery</span>
+                            <span class="unique-badge">💬 24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Backend Development</h3>
+                        <p>Robust server-side solutions with RESTful APIs, database design, and cloud deployment.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> RESTful APIs</li>
+                            <li><i class="fas fa-check"></i> Database Design</li>
+                            <li><i class="fas fa-check"></i> Cloud Deployment</li>
+                            <li><i class="fas fa-check"></i> Security Implementation</li>
+                        </ul>
+                        <div class="service-unique">
+                            <span class="unique-badge">🔒 Secure & Scalable</span>
+                            <span class="unique-badge">⚡ Performance Optimized</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>AI/ML Development</h3>
+                        <p>Custom artificial intelligence and machine learning solutions tailored to your business needs.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Data Analysis</li>
+                            <li><i class="fas fa-check"></i> Model Training</li>
+                            <li><i class="fas fa-check"></i> Deployment</li>
+                            <li><i class="fas fa-check"></i> Integration</li>
+                        </ul>
+                        <div class="service-unique">
+                            <span class="unique-badge">🎨 Creative Solutions</span>
+                            <span class="unique-badge">📱 Mobile-First Design</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="services-cta">
+                <div class="cta-content">
+                    <h3>Ready to Start Your Project?</h3>
+                    <p>Let's discuss your requirements and create something amazing together.</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                        <a href="#projects" class="btn btn-secondary">View Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-subtitle">Some of my recent work</p>
+            </div>
+            <div class="projects-grid">
+                {% for project in projects %}
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                {% if project.live_link %}
+                                <a href="{{ project.live_link }}" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                {% endif %}
+                                {% if project.github_link %}
+                                <a href="{{ project.github_link }}" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                        <div class="project-tech">
+                            {% for tech in project.technologies.split|slice:":6" %}
+                            <span class="tech-tag">{{ tech.strip }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p style="text-align: center; grid-column: 1/-1;">No projects available yet.</p>
+                {% endfor %}
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="{% url 'all_projects' %}" class="btn btn-primary">See More Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3>Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="95"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-java"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-js"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="88"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">SQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Framework & Technologies</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+    
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">Django</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="82"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">REST API</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-servicestack"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">Streamlit</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="78"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-bootstrap"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">Bootstrap</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Database</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-postgresql"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">PostgreSQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-stripe-s"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">SQLite</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">MySQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="75"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-solid fa-0 fa-rotate-270 fa-xl" style="color: rgb(165, 38, 27);"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">Oracle</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="70"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>DevOps & Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-docker"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">Docker</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">GitHub</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-gitlab"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">GitLab</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="95"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fa-brands fa-jira"></i>
+                            </div>
+                            <div class="skill-info">
+                                <span class="skill-name">Jira</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Resume</h2>
+                <p class="section-subtitle">My education and experience</p>
+            </div>
+            <div class="resume-content">
+                <div class="resume-section">
+                    <h3>Education</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Bachelor of Computer Science Engineering & Artificial Intelligence</h4>
+                                <p class="timeline-subtitle">
+                                    GITA Autonomous College, BBSR</p>
+                                <p class="timeline-date">Sep 2023 - May 2027</p>
+                                <p>Pursuing a Bachelor's Degree in CSE-AI, with a strong focus on Web Development and Software Engineering.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>+2 Science</h4>
+                                <p class="timeline-subtitle">Srinibas Higher Secondary School, Soro</p>
+                                <p class="timeline-date">Aug 2021 - Apr 2023</p>
+                                <p>Completed Higher Secondary Education in Science, with a strong foundation in Mathematics, Physics, and Computer Science.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3 >Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Python Full-Stack Developer Intern</h4>
+                                <p class="timeline-subtitle">
+                                    Cyber Impulse Software Solution, Indore</p>
+                                <p class="timeline-date">Feb 2026 - Jul 2026 . 6 months</p>
+                                <p>Completed a Web Development Internship, gaining hands-on experience in building responsive websites using HTML, CSS, JavaScript, and modern frameworks.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Python Full-Stack Development Trainee</h4>
+                                <p class="timeline-subtitle">OCAC, Bhubaneswar</p>
+                                <p class="timeline-date">Jul 2025 - Apr 2026 . 10 months</p>
+                                <p>Worked as a Java Developer Intern, focusing on core Java concepts, object-oriented programming, and building backend applications.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Data Science Intern</h4>
+                                <p class="timeline-subtitle">Edvedha Pvt. ltd</p>
+                                <p class="timeline-date"> Jan 2025 - Mar 2025 · 3 months</p>
+                                <p>Completed a Summer Internship in MySQL, gaining practical experience in database design, writing queries, and managing relational databases.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="resume-download">
+                <a href="https://drive.google.com/file/d/1ht61JmDU99r5FthepgQUH2TzAn_uBY5o/view?usp=drivesdk" class="btn btn-primary">
+                    <i class="fas fa-download"></i>
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's work together</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>ritikkumar.nayak29@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91 9777108429</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Bhubaneswar, Odisha</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Tech-With-Ritik" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ritik-kumar-nayak/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/1CuC8M48KH/" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbCdJniATRSsG6cfv03q" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="{% url 'contact'%}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="content" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-gradient"></div>
+            <div class="floating-shapes-footer">
+                <div class="footer-shape shape-1"></div>
+                <div class="footer-shape shape-2"></div>
+                <div class="footer-shape shape-3"></div>
+                <div class="footer-shape shape-4"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section main-section">
+                    <div class="footer-logo">
+                        <div class="logo-container">
+                            <h3 class="footer-title">Portfolio</h3>
+                            <div class="logo-glow"></div>
+                        </div>
+                    </div>
+                    <p class="footer-description">Full Stack Developer passionate about creating innovative web solutions with cutting-edge technologies.</p>
+                   
+                    <div class="footer-social">
+                        <a href="https://github.com/Tech-With-Ritik" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ritik-kumar-nayak/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/share/1CuC8M48KH/" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbCdJniATRSsG6cfv03q" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#about" class="footer-link">About</a></li>
+                        <li><a href="#projects" class="footer-link">Projects</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Web Development</a></li>
+                        <li><a href="#" class="footer-link">Backend Development</a></li>
+                        <li><a href="#" class="footer-link">API Development</a></li>
+                        <li><a href="#" class="footer-link">AI/ML Engineering</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item-footer">
+                            <i class="fas fa-envelope"></i>
+                            <span>ritikkumar.nayak29@gmail.com</span>
+                        </div>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9777108429</span>
+                        </div>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bhubaneswar, Odisha</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+                <p class="copyright">&copy; 2026 Tech-With-Ritik. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span class="badge">Full Stack Developer</span>
+                    <span class="badge">AI Engineer</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <script src="{%static 'js/script.js'%}"></script>
+</body>
+</html> 

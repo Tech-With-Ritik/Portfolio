@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects - Portfolio</title>
+    <meta name="description" content="All projects by Ritik, a Full Stack Developer">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    {% comment %} favicons {% endcomment %}
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+
+    <link rel="icon" sizes="32x32" type="image/png" href="{% static 'favicon/favicon-32x32.png' %}">
+
+    <link rel="apple-touch-icon" type="image/png" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <style>
+        body {
+            background-color: var(--bg-color);
+            background-image: var(--body-radial);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        .projects-header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: var(--surface-glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-glass);
+            box-shadow: var(--shadow-glass);
+            margin-bottom: 30px;
+        }
+        .projects-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .projects-header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+        }
+        .all-projects-container {
+            padding: 40px 20px 80px;
+            position: relative;
+            z-index: 2;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 0.6rem 1.2rem;
+            background: var(--surface-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 999px;
+            box-shadow: var(--shadow-glass);
+        }
+        .back-link:hover {
+            color: #fff;
+            background: var(--accent-gradient);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--accent-glow);
+        }
+        .back-link i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+        .back-link:hover i {
+            transform: translateX(-4px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Dynamic Background Glass Liquid Blobs -->
+    <div class="liquid-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+        <div class="blob blob-5"></div>
+    </div>
+
+    <!-- Projects Header -->
+    <div class="projects-header">
+        <h1>All My Projects</h1>
+        <p>Explore the complete collection of my recent work</p>
+    </div>
+
+    <!-- All Projects Section -->
+    <section class="all-projects-container">
+        <div class="container">
+            <a href="{% url 'home' %}" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+
+            <div class="projects-grid" style="margin-top: 40px;">
+                {% for project in projects %}
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                {% if project.live_link %}
+                                <a href="{{ project.live_link }}" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                {% endif %}
+                                {% if project.github_link %}
+                                <a href="{{ project.github_link }}" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                        <div class="project-tech">
+                            {% for tech in project.technologies.split|slice:":10" %}
+                            <span class="tech-tag">{{ tech.strip }}</span>
+                            {% endfor %}
+                        </div>
+                        <small style="color: rgba(255, 255, 255, 0.6); display: block; margin-top: 10px;">
+                            Created: {{ project.created_at|date:"M d, Y" }}
+                        </small>
+                    </div>
+                </div>
+                {% empty %}
+                <div style="text-align: center; grid-column: 1/-1; padding: 60px 20px;">
+                    <h3 style="color: rgba(255, 255, 255, 0.7);">No projects available yet.</h3>
+                    <p style="color: rgba(255, 255, 255, 0.5);">Check back soon!</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Scripts -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
