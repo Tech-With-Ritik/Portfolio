@@ -32,7 +32,7 @@ DEBUG = os.getenv('DEBUG') == 'False'
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    ".onrender.com",
+    "https://ritik-portfolio-ji17.onrender.com",
 ]
 
 
@@ -212,7 +212,7 @@ cloudinary.config(
 )
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.onrender.com",
+    "https://ritik-portfolio-ji17.onrender.com",
 ]
 
 # Security settings for production
