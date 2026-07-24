@@ -1,4 +1,4 @@
-import threading
+import traceback
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -26,8 +26,10 @@ def send_contact_emails(sender_email, owner_recipient, user_recipient, email_sub
                 [user_recipient],
                 fail_silently=False,
             )
-    except Exception as e:
-        print("Failed to send contact email:", e)
+    except Exception:
+        print("========== EMAIL ERROR ==========")
+        traceback.print_exc()
+        print("=================================")
 
 
 def home(request):
@@ -71,7 +73,7 @@ def contact(request):
         ins.save()
 
         # Send the saved message to the site owner and a confirmation to the user in the background
-        sender_email = settings.DEFAULT_FROM_EMAIL or settings.EMAIL_HOST_USER
+        sender_email = settings.EMAIL_HOST_USER
         owner_recipient = sender_email
         user_recipient = email
 
@@ -87,20 +89,15 @@ def contact(request):
             "Portfolio Team"
         )
 
-        email_thread = threading.Thread(
-            target=send_contact_emails,
-            args=(
-                sender_email,
-                owner_recipient,
-                user_recipient,
-                email_subject,
-                email_body,
-                confirmation_subject,
-                confirmation_body,
-            ),
-            daemon=True,
+        send_contact_emails(
+            sender_email,
+            owner_recipient,
+            user_recipient,
+            email_subject,
+            email_body,
+            confirmation_subject,
+            confirmation_body,
         )
-        email_thread.start()
 
         messages.success(request, "Thank you for contacting me! Your message has been saved")
         print("Data has been saved to database")
