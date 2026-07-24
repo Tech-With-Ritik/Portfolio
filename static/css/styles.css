@@ -1500,6 +1500,15 @@ section {
     .contact-form {
         padding: 2rem;
     }
+
+    /* Disable heavy animations and blurs to fix lag (glitch effect) on mobile */
+    .liquid-background {
+        display: none !important;
+    }
+    .blob {
+        animation: none !important;
+        display: none !important;
+    }
 }
 
 @media (max-width: 480px) {

@@ -3,29 +3,45 @@ import traceback
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.conf import settings
-from django.core.mail import send_mail
+import requests
 from portfolio_app.models import Contact, Project
 
 
 def send_contact_emails(sender_email, owner_recipient, user_recipient, email_subject, email_body, confirmation_subject, confirmation_body):
+    resend_api_key = getattr(settings, 'RESEND_API_KEY', None)
+    if not resend_api_key:
+        print("RESEND_API_KEY is not set.")
+        return
+
+    headers = {
+        "Authorization": f"Bearer {resend_api_key}",
+        "Content-Type": "application/json"
+    }
+    
+    # We must send FROM onboarding@resend.dev since it's a free test domain
+    from_email = "onboarding@resend.dev"
+
     try:
         if owner_recipient:
-            send_mail(
-                email_subject,
-                email_body,
-                sender_email,
-                [owner_recipient],
-                fail_silently=False,
-            )
+            data = {
+                "from": from_email,
+                "to": [owner_recipient],
+                "subject": email_subject,
+                "text": email_body
+            }
+            res = requests.post("https://api.resend.com/emails", headers=headers, json=data)
+            print("Owner email status:", res.status_code, res.text)
 
         if user_recipient:
-            send_mail(
-                confirmation_subject,
-                confirmation_body,
-                sender_email,
-                [user_recipient],
-                fail_silently=False,
-            )
+            data = {
+                "from": from_email,
+                "to": [user_recipient],
+                "subject": confirmation_subject,
+                "text": confirmation_body
+            }
+            res = requests.post("https://api.resend.com/emails", headers=headers, json=data)
+            print("User email status:", res.status_code, res.text)
+
     except Exception:
         print("========== EMAIL ERROR ==========")
         traceback.print_exc()
@@ -66,6 +82,11 @@ def contact(request):
         # Validate Subject
         if not (1 < len(subject) < 30):
             messages.error(request, "Length of subject should be greater than 2 and less than 30 characters")
+            return redirect('home')
+
+        # Rate Limiting: Max 3 messages per email address
+        if Contact.objects.filter(email=email).count() >= 3:
+            messages.error(request, "You have reached the maximum limit of 3 messages.")
             return redirect('home')
 
         # Save to database
